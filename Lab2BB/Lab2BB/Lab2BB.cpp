@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include <stack>
 using namespace std;
+#include "RecursiveTOH.h"
+#include "IterativeTOH.h"
 
 
-void playHanoi(int numberDisksToMove, char originalPeg, char destinationPeg, char temporalPeg) {
+/*void playHanoi(int numberDisksToMove, char originalPeg, char destinationPeg, char temporalPeg) {
     if(numberDisksToMove==1)
     {
         cout << originalPeg << "->" << destinationPeg << std::endl;
@@ -14,7 +17,7 @@ void playHanoi(int numberDisksToMove, char originalPeg, char destinationPeg, cha
     playHanoi(numberDisksToMove - 1, originalPeg, temporalPeg, destinationPeg);
     cout << originalPeg << "->" << destinationPeg << std::endl;
     playHanoi(numberDisksToMove - 1, temporalPeg, destinationPeg, originalPeg);
-}
+}*/
 
 void basicRec(int n)
 {
@@ -29,14 +32,15 @@ void basicRec(int n)
     std::cout << "finishing with; " << n << std::endl;
 }
 
-/*void hanoi2(int n, char source, char auxiliary, char target) {
-    std::cout << "disk amount:" << n << std::endl;
-    if (n > 0) {
-        hanoi(n - 1, source, target, auxiliary);
-        std::cout << "Move disk " << n << " from " << source << " to " << target << std::endl;
-        hanoi(n - 1, auxiliary, source, target);
-    }
-}*/
+/*class toh {                  //To make a variable which can keep a track of source, auxiliary and destination pole.
+public:
+    char from;
+    char to;
+    char aux;
+    int n;
+};*/
+
+
 
 int main()
 {
@@ -45,7 +49,13 @@ int main()
     int n;
     std::cout << "Enter the number of disks: ";
     std::cin >> n;
-    playHanoi(n, '1', '3', '2');
+    RecursiveTOH recToh{};
+    recToh.playHanoi(n, '1', '3', '2');
+
+    std::cout << "------------------------ "<<endl;
+
+    IterativeTOH iteToh{};
+    iteToh.towerOfHanoi(n, '1', '2', '3');
     return 0;
 }
 

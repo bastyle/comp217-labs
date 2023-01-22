@@ -129,6 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Lab2BB.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IterativeTOH.h" />
+    <ClInclude Include="RecursiveTOH.h" />
+    <ClInclude Include="Toh.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
