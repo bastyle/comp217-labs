@@ -7,32 +7,33 @@
 class IterativeTOH
 {
 public:
-    void letsPlay(int n, char source, char auxiliary, char destination)const {
-        stack<Toh> st;      //Declaring a stack. 
-        while (n >= 1 or !st.empty()) {
-            while (n >= 1) {//Save the current state and move to  the letsPlay(n-1,source,destination,auxiliary).
-                Toh cur;
-                cur.setOriginalPeg(source);
-                cur.setTemporalPeg(auxiliary);
-                cur.setDestinationPeg(destination);
-                cur.setDiskNumber(n);
-                st.push(cur);
+    void letsPlay(int numberOfDisks, char source, char auxiliary, char destination)const {
+        stack<Toh> tohStack;      //Declaring a stack. 
+        while (numberOfDisks >= 1 or !tohStack.empty()) {
+            while (numberOfDisks >= 1) {//Save the current state and move to  the letsPlay(numberOfDisks-1,source,destination,auxiliary).
+                Toh toh;
+                toh.setOriginalPeg(source);
+                toh.setTemporalPeg(auxiliary);
+                toh.setDestinationPeg(destination);
+                toh.setDiskNumber(numberOfDisks);
+                tohStack.push(toh); // adding the current object at the top of the stack.
                 //cout << "before swap dest " << destination << " aux" << auxiliary << std::endl;
                 //cout << destination << " -> " << auxiliary << endl;
-                swap(destination, auxiliary);
+                swap(destination, auxiliary);// swapping the destination peg with the auxiliary one, so the next iteration will move from the original auxiliary peg on the
                 //cout << "after swap dest " << destination << " aux" << auxiliary << std::endl;
-                n--;                
+                numberOfDisks--;//discount one of the total of disks to process the next one.
             }
-            Toh cur = st.top();
-            st.pop();
+            Toh cur = tohStack.top();
+            tohStack.pop();
             //cout << "Move disk " << cur.getDiskNumber() << " from rod " << cur.getOriginalPeg() << " to rod " << cur.getDestinationPeg() << std::endl;
             cout << cur.getOriginalPeg() << "->" << cur.getDestinationPeg() << std::endl;
             
             if (cur.getDiskNumber() >= 1) {
-                source = cur.getTemporalPeg();           // Simulates the letsPlay(n-1,auxiliary,source,destination) of Recursive Step.
+                source = cur.getTemporalPeg();           // Simulates the letsPlay(numberOfDisks-1,auxiliary,source,destination) of Recursive Step.
                 auxiliary = cur.getOriginalPeg();
                 destination = cur.getDestinationPeg();
-                n = cur.getDiskNumber() - 1;
+                numberOfDisks = cur.getDiskNumber() - 1;
+                cout << "numberOfDisks: " << numberOfDisks << std::endl;
             }
         }
     }

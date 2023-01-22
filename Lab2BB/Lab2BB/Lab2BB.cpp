@@ -28,7 +28,7 @@ int main()
     const char originalPeg{'1'};
     const char temporalPeg{ '2' };
     const char destinationPeg{ '3' };
-    std::cout << "Enter the number of disks: ";
+    std::cout << "Enter the number of disks to move: ";
     std::cin >> numberOfDiskToMove;
     RecursiveTOH recToh{};
     std::cout << "------------------------ Recursive Approach ------------------------ " << endl;
