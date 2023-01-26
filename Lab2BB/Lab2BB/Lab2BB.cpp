@@ -25,9 +25,9 @@ int main()
 {
     //basicRec(3);
 	int numberOfDiskToMove{0};
-    const char originalPeg{'1'};
-    const char temporalPeg{ '2' };
-    const char destinationPeg{ '3' };
+    constexpr char originalPeg{'1'};
+    constexpr  char temporalPeg{ '2' };
+    constexpr  char destinationPeg{ '3' };
     std::cout << "Enter the number of disks to move: ";
     std::cin >> numberOfDiskToMove;
     RecursiveTOH recToh{};
@@ -35,7 +35,10 @@ int main()
     recToh.letsPlay(numberOfDiskToMove, originalPeg, destinationPeg, temporalPeg);
     std::cout << "------------------------ Iterative Approach ------------------------ "<<endl;
     IterativeTOH iteToh{};
-    iteToh.letsPlay(numberOfDiskToMove, originalPeg, temporalPeg, destinationPeg);
+    int totalMoves = pow(2, numberOfDiskToMove) - 1;
+    std::cout << "moves to execute: " << totalMoves << endl;
+    totalMoves = iteToh.letsPlay(numberOfDiskToMove, originalPeg, temporalPeg, destinationPeg);
+    std::cout << "moves executed: " << totalMoves << endl;
     return 0;
 }
 
