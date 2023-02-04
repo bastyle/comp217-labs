@@ -2,9 +2,6 @@
 //
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-
 #include "SalaryCalculator.h"
 #include "DiceRoller.h"
 #include "Dynamic2DArray.h"
@@ -12,90 +9,65 @@
 
 using namespace std;
 
-void calcSalary() {
-    int salary[3];
-    for (int i = 0; i < 3; ++i) {
-        cout << "Enter Salary: ";
-        cin >> salary[i];
-    }
-    cout << endl;
-    cout << "Entered salaries are: " << endl;
-    for (int i = 0; i < 3; ++i) {
-        cout << salary[i] << " ";
-    }
-    cout << endl;
-    cout << "Updated salaries are: " << endl;
-    for (int i = 0; i < 3; ++i) {
-        salary[i] = salary[i] + salary[i] / (i + 1);
-        cout << salary[i] << " ";
-    }
-}
 
-void calcSalaryArrayByPointerArithmetic() {
-    int salary[3];
-    int *ptr = salary;
-    for (int i = 0; i < 3; ++i) {
-        cout << "Enter Salary: ";
-        cin >> *(ptr + i);
-    }
-    cout << endl;
-    cout << "Entered salaries are: " << endl;
-    for (int i = 0; i < 3; ++i) {
-        cout << *(ptr + i) << " ";
-    }
-    cout << endl;
-    cout << "Updated salaries are: " << endl;
-    for (int i = 0; i < 3; ++i) {
-        *(ptr + i) = *(ptr + i) + *(ptr + i) / (i + 1);
-        cout << *(ptr + i) << " ";
-    }
-}
-
-int rollDices() {
-    srand(time(0));
-    int tally[13] = { 0 };
-    int *ptr = tally;
-    for (int i = 0; i < 36000; ++i) {
-        int die1 = rand() % 6 + 1;
-        int die2 = rand() % 6 + 1;
-        int sum = die1 + die2;
-        *(ptr+sum)= *(ptr + sum)+1;
-    }
-    cout << "Dices Sum\tTally" << endl;
-    for (int i = 2; i <= 12; ++i) {
-        cout << i << "\t" << tally[i] << endl;
-    }
-    return 0;
-}
 
 int main()
 {
-    cout << "--------------------- Part A (Salary Calculator) ---------------------" << endl;
+    char option{};
+    bool menu = true;
     SalaryCalculator calc;
-    calc.inputSalary();
-    calc.updateSalaries();
-
-    cout << "--------------------- Part B (Dice Roller) ---------------------" << endl;
-    //rollDices();
     DiceRoller diceRoller;
-    diceRoller.rollDices();
-
-    cout << "--------------------- Part C (Dynamic 2D Array) ---------------------" << endl;
-
-    // create an object of Dynamic2DArray for integers
-    Dynamic2DArray<int> intArray(2, 2);
-    cout << "Enter elements for integer array: " << endl;
-    intArray.input();
-    intArray.display();
-    // create an object of Dynamic2DArray for characters
-    Dynamic2DArray<char> charArray(2, 2);
-    cout << "Enter elements for character array: " << endl;
-    charArray.input();
-    charArray.display();
-
-    cout << "--------------------- Part D (Dynamic 2D Array) ---------------------" << endl;    
     NumberArray numberArray;
-    numberArray.input();
-    return 0;
+    Dynamic2DArray<int> intArray(2, 2);
+    Dynamic2DArray<char> charArray(2, 2);
+    do
+    {
+        cout << "---------------------------------------------------" << endl;
+    	cout << "Enter an option to execute: " << endl;
+        cout << "A for\t Part A Part A (Salary Calculator)" << endl;
+        cout << "B for\t Part B (Dice Roller)" << endl;
+        cout << "C for\t Part C (Dynamic 2D Array)" << endl;
+        cout << "D for\t Part D (Number Array)" << endl;
+        cout << "X for\t Exit" << endl;
+        cout << "---------------------------------------------------" << endl;
+        cin >> option;
+        switch (option)
+        {
+        case 'a':
+            cout << "--------------------- Part A (Salary Calculator) ---------------------" << endl;
+            //SalaryCalculator calc;
+            calc.inputSalary();
+            calc.updateSalaries();
+            break;
+        case 'b':
+            cout << "--------------------- Part B (Dice Roller) ---------------------" << endl;
+            //DiceRoller diceRoller;
+            diceRoller.rollDices();
+            break;
+        case 'c':
+            cout << "--------------------- Part C (Dynamic 2D Array) ---------------------" << endl;
+            cout << "Enter elements for integer array: " << endl;
+            intArray.input();
+            intArray.display();
+            cout << "Enter elements for character array: " << endl;
+            charArray.input();
+            charArray.display();
+            break;
+        case 'd':
+            cout << "--------------------- Part D (Number Array) ---------------------" << endl;
+            numberArray.input();
+            break;
+        case 'x':
+            menu = false;
+            break;
+        default:
+			menu = false;
+            break;
+        }
+        cout << endl;
+        
+    } while (menu);
+    
+	return 0;
 }
 
