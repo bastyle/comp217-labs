@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 using namespace std;
 
@@ -10,9 +11,7 @@ public:
     SalaryCalculator() {
         ptr = salary;
     }
-    ~SalaryCalculator() {
-        delete[] salary;
-    }
+    
     void inputSalary() {
         for (int i = 0; i < 3; ++i) {
             cout << "Enter Salary: ";
@@ -34,5 +33,6 @@ public:
             *(ptr + i) = *(ptr + i) + *(ptr + i) / (i + 1);
             cout << *(ptr + i) << " ";
         }
+        cout << endl;
     }
 };

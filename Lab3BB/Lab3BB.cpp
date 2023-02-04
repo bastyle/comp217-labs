@@ -68,15 +68,18 @@ int rollDices() {
 
 int main()
 {
-    /*calcSalaryArrayByPointerArithmetic();
-    cout << endl;
+   // calcSalaryArrayByPointerArithmetic();
+    //cout << endl;
+    cout << "--------------------- Salary Calculator ---------------------" << endl;
     SalaryCalculator calc;
     calc.inputSalary();
-    calc.updateSalaries();*/
-    
+    calc.updateSalaries();
+
+    cout << "--------------------- Dice Roller ---------------------" << endl;
     //rollDices();
     DiceRoller diceRoller;
     diceRoller.rollDices();
 
+    return 0;
 }
 

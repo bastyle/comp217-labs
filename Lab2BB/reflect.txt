@@ -4,4 +4,9 @@ Then, at the code level of our recursive function, we must be clear about the pa
 
 Initially, it was difficult for me to understand how a recursive function works, the behaviour seemed strange to me, so I created a test function and debugged it to be able to follow the order of execution of the statements step by step.
 
-As for transforming the functionality to an iterative approach, I actually found it very difficult to implement. I tried to use different native variables, but I could not implement an adequate solution for the problem. Finally, I used a linear data structure like a stack and instantiated 3 of them to represent the pegs. In this way, I could access the element at the top of each structure without worrying about sorting the values inside it manually. The truth is that at the logic level, I could not implement a solution that adequately fulfilled what was requested.
+As for transforming the functionality to an iterative approach, I actually found it very difficult to implement. 
+I tried to use different native variables, but I could not implement an adequate solution for the problem. 
+Finally, I used a linear data structure like a stack and instantiated 3 of them to represent the pegs. 
+In this way, I could access the element at the top of each structure without worrying about sorting the values inside it manually. 
+
+
