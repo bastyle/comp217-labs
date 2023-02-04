@@ -10,6 +10,9 @@ public:
     SalaryCalculator() {
         ptr = salary;
     }
+    ~SalaryCalculator() {
+        delete[] salary;
+    }
     void inputSalary() {
         for (int i = 0; i < 3; ++i) {
             cout << "Enter Salary: ";
