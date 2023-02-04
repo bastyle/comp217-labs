@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "SalaryCalculator.h"
+
 using namespace std;
 
 void calcSalary() {
@@ -25,7 +27,7 @@ void calcSalary() {
 
 void calcSalaryArrayByPointerArithmetic() {
     int salary[3];
-    int* ptr = salary;
+    int *ptr = salary;
     for (int i = 0; i < 3; ++i) {
         cout << "Enter Salary: ";
         cin >> *(ptr + i);
@@ -46,5 +48,10 @@ void calcSalaryArrayByPointerArithmetic() {
 int main()
 {
     calcSalaryArrayByPointerArithmetic();
+    cout << endl;
+    SalaryCalculator calc;
+    calc.inputSalary();
+    //calc.displaySalaries();
+    calc.updateSalaries();
 }
 
