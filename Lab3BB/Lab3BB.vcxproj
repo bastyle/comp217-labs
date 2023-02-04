@@ -133,6 +133,7 @@
     <ClInclude Include="DiceRoller.h" />
     <ClInclude Include="Dynamic2DArray.h" />
     <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="NumberArray.h" />
     <ClInclude Include="SalaryCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
