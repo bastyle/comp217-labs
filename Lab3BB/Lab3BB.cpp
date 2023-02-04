@@ -70,8 +70,7 @@ int rollDices() {
 
 int main()
 {
-   
-    /*cout << "--------------------- Part A (Salary Calculator) ---------------------" << endl;
+    cout << "--------------------- Part A (Salary Calculator) ---------------------" << endl;
     SalaryCalculator calc;
     calc.inputSalary();
     calc.updateSalaries();
@@ -79,12 +78,12 @@ int main()
     cout << "--------------------- Part B (Dice Roller) ---------------------" << endl;
     //rollDices();
     DiceRoller diceRoller;
-    diceRoller.rollDices();*/
+    diceRoller.rollDices();
 
     cout << "--------------------- Part C (Dynamic 2D Array) ---------------------" << endl;
 
     // create an object of Dynamic2DArray for integers
-    /*Dynamic2DArray<int> intArray(2, 2);
+    Dynamic2DArray<int> intArray(2, 2);
     cout << "Enter elements for integer array: " << endl;
     intArray.input();
     intArray.display();
@@ -92,15 +91,11 @@ int main()
     Dynamic2DArray<char> charArray(2, 2);
     cout << "Enter elements for character array: " << endl;
     charArray.input();
-    charArray.display();*/
+    charArray.display();
 
-    cout << "--------------------- Part D (Dynamic 2D Array) ---------------------" << endl;
-    
+    cout << "--------------------- Part D (Dynamic 2D Array) ---------------------" << endl;    
     NumberArray numberArray;
     numberArray.input();
-    
-    
-
     return 0;
 }
 
