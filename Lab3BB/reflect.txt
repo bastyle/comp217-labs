@@ -1,0 +1,5 @@
+T **arr is a double pointer to a T type object, where T is a template type. The double pointer **arr is used to dynamically allocate a 2D array.
+
+In C++, a single pointer *arr can be used to dynamically allocate a 1D array, where the memory is contiguous. But in the case of a 2D array, the memory is not contiguous, and we need to dynamically allocate multiple 1D arrays, where each 1D array represents a row of the 2D array.
+
+So, to dynamically allocate a 2D array, we use a double pointer **arr. Here, arr is a pointer to an array of pointers, where each pointer points to a 1D array representing a row of the 2D array. The size of each row can be different, and hence each row is dynamically allocated using a single pointer *arr[i].

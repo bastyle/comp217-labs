@@ -7,6 +7,7 @@
 
 #include "SalaryCalculator.h"
 #include "DiceRoller.h"
+#include "Dynamic2DArray.h"
 
 using namespace std;
 
@@ -68,9 +69,8 @@ int rollDices() {
 
 int main()
 {
-   // calcSalaryArrayByPointerArithmetic();
-    //cout << endl;
-    cout << "--------------------- Salary Calculator ---------------------" << endl;
+   
+    /*cout << "--------------------- Salary Calculator ---------------------" << endl;
     SalaryCalculator calc;
     calc.inputSalary();
     calc.updateSalaries();
@@ -78,7 +78,24 @@ int main()
     cout << "--------------------- Dice Roller ---------------------" << endl;
     //rollDices();
     DiceRoller diceRoller;
-    diceRoller.rollDices();
+    diceRoller.rollDices();*/
+
+    cout << "--------------------- Dynamic 2D Array ---------------------" << endl;
+
+    // create an object of Dynamic2DArray for integers
+    Dynamic2DArray<int> intArray(2, 2);
+    std::cout << "Enter elements for integer array: " << std::endl;
+    intArray.input();
+    intArray.display();
+
+    // create an object of Dynamic2DArray for characters
+    Dynamic2DArray<char> charArray(2, 2);
+    std::cout << "Enter elements for character array: " << std::endl;
+    charArray.input();
+    charArray.display();
+
+    
+    
 
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 
-template <typename type>
+template <typename T>
 class Dynamic2DArray {
     
 private:
@@ -27,6 +27,15 @@ public:
             for (int j = 0; j < columns; j++) {
                 std::cin >> arr[i][j];
             }
+        }
+    }
+
+	void display() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                std::cout << arr[i][j] << " ";
+            }
+            std::cout << std::endl;
         }
     }
 };
