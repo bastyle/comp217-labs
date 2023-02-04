@@ -2,6 +2,7 @@
 
 template <typename type>
 class Dynamic2DArray {
+    
 private:
     int rows, columns;
     T** arr;
