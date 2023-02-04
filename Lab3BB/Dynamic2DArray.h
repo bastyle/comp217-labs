@@ -33,7 +33,7 @@ public:
 	void display() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                std::cout << arr[i][j] << " ";
+                std::cout << "| " << arr[i][j] << "\t";
             }
             std::cout << std::endl;
         }

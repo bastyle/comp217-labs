@@ -23,7 +23,7 @@ int main()
     do
     {
         cout << "---------------------------------------------------" << endl;
-    	cout << "Enter an option to execute: " << endl;
+    	cout << "Enter an option to execute {a,b,c,d,x} " << endl;
         cout << "A for\t Part A Part A (Salary Calculator)" << endl;
         cout << "B for\t Part B (Dice Roller)" << endl;
         cout << "C for\t Part C (Dynamic 2D Array)" << endl;
@@ -35,21 +35,19 @@ int main()
         {
         case 'a':
             cout << "--------------------- Part A (Salary Calculator) ---------------------" << endl;
-            //SalaryCalculator calc;
             calc.inputSalary();
             calc.updateSalaries();
             break;
         case 'b':
             cout << "--------------------- Part B (Dice Roller) ---------------------" << endl;
-            //DiceRoller diceRoller;
             diceRoller.rollDices();
             break;
         case 'c':
             cout << "--------------------- Part C (Dynamic 2D Array) ---------------------" << endl;
-            cout << "Enter elements for integer array: " << endl;
+            cout << "Enter 4 elements for integer array: " << endl;
             intArray.input();
             intArray.display();
-            cout << "Enter elements for character array: " << endl;
+            cout << "Enter 4 elements for character array: " << endl;
             charArray.input();
             charArray.display();
             break;
@@ -61,7 +59,7 @@ int main()
             menu = false;
             break;
         default:
-			menu = false;
+            cout << "Enter a valid option. " << endl;
             break;
         }
         cout << endl;
