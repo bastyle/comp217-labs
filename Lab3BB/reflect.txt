@@ -1,5 +1,4 @@
-T **arr is a double pointer to a T type object, where T is a template type. The double pointer **arr is used to dynamically allocate a 2D array.
+Some interesting points in this lab were the use of pointers over arrays, which I still don't feel comfortable using, but this lab helped me to introduce myself more on that point.
+One of the difficulties I found was the validation of a variable of type char; I had to implement a validation based on ASCII characters that I didn't know if it was optimal.
+Another point that gave me trouble to solve was the use of a double pointer, to be used in the 2-dimensional array. T **arr is a double pointer to a T type object, where T is a template type. The double pointer **arr is used to dynamically allocate a 2D array.
 
-In C++, a single pointer *arr can be used to dynamically allocate a 1D array, where the memory is contiguous. But in the case of a 2D array, the memory is not contiguous, and we need to dynamically allocate multiple 1D arrays, where each 1D array represents a row of the 2D array.
-
-So, to dynamically allocate a 2D array, we use a double pointer **arr. Here, arr is a pointer to an array of pointers, where each pointer points to a 1D array representing a row of the 2D array. The size of each row can be different, and hence each row is dynamically allocated using a single pointer *arr[i].
