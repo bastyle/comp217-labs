@@ -5,7 +5,7 @@ public:
 	Employee();
 	Employee(int employeeID, float baseSalary);
 	float calculateSalary();
-private:
+protected:
 	int employeeID;
 	float baseSalary;
 };
