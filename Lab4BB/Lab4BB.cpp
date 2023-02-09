@@ -13,8 +13,8 @@ using namespace std;
 
 int main()
 {
-    setw(2);
-    setprecision(5);
+    //setw(2);
+    //setprecision(5);
     CommissionedEmployee E1(25, 5000, 1000, 10);
     // CASE 1 - derived Class Pointer pointing to Derived class object
     CommissionedEmployee* ptr;

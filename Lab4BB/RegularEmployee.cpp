@@ -1,7 +1,6 @@
 #include "RegularEmployee.h"
 
 #include <iostream>
-//#include <iomanip>
 using namespace std;
 
 RegularEmployee::RegularEmployee(int employeeID, float baseSalary, float bonus) :Employee(employeeID, baseSalary) {
