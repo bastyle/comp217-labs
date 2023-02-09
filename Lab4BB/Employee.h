@@ -2,9 +2,10 @@
 class Employee
 {
 public:
-	Employee();
+	//Employee();
 	Employee(int employeeID, float baseSalary);
-	float calculateSalary();
+	virtual float calculateSalary();
+	//float calculateSalary();
 protected:
 	int employeeID;
 	float baseSalary;

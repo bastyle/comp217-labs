@@ -3,11 +3,18 @@
 
 #include <iostream>
 
+#include "HourlyEmployee.h"
+//#include "RegularEmployee.h"
+#include "CommissionedEmployee.h"
+#include "RegularEmployee.h"
+#include <iomanip>
+
 using namespace std;
-#include "CommissionedEmployee.h";
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    setw(2);
+    setprecision(5);
     CommissionedEmployee E1(25, 5000, 1000, 10);
     // CASE 1 - derived Class Pointer pointing to Derived class object
     CommissionedEmployee* ptr;
@@ -34,10 +41,10 @@ int main()
     list[5] = &R2;
     for (int i = 0; i < 6; i++)
     {
-        cout << "Employee " << i << " salary is : " << list[i] > calculateSalary();
+        cout << "Employee " << i << " salary is : " << list[i]->calculateSalary();
         cout << endl;
     }
-    return 0
+    return 0;
 }
 
 
