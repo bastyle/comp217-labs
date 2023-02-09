@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommissionedEmployee.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="HourlyEmployee.cpp" />
     <ClCompile Include="Lab4BB.cpp" />
+    <ClCompile Include="RegularEmployee.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommissionedEmployee.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="HourlyEmployee.h" />
+    <ClInclude Include="RegularEmployee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
