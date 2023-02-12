@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-HourlyEmployee::HourlyEmployee(int employeeID, float baseSalary, float payPerHour, float extraHours) :Employee(employeeID, baseSalary) {
+HourlyEmployee::HourlyEmployee(int employeeID, float baseSalary, float extraHours, float payPerHour) :Employee(employeeID, baseSalary) {
 	this->payPerHour = payPerHour;
 	this->extraHours = extraHours;
 	//cout << "HourlyEmployee constructor" << endl;
