@@ -12,8 +12,11 @@ int main()
     Rational ratB = Rational(2, 5);
     std::cout << "sum; " << ratA+ratB << "\n";
     bool equal = ratA == ratB;
-    std::cout << "equals? " << equal;
-    Rational ra1;    
+    std::cout << "equals? " << equal << "\n";
+    Rational ra1(2,2);
+    std::cout << ra1 << "\n";
+    ra1++;
+    std::cout << ra1 << "\n";
 }
 
 

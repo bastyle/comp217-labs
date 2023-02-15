@@ -104,10 +104,7 @@ Rational& Rational::operator++() {
         numerator++;
         return *this;
     }
-    else {
-        // throw an exception if the denominator is not 1
-        throw std::invalid_argument("Denominator must be 1 to use pre-increment operator.");
-    }
+    std::cout << "Denominator must be 1 to use pre-increment operator." << "\n";    
 }
 
 Rational& Rational::operator--() {
@@ -116,10 +113,7 @@ Rational& Rational::operator--() {
         numerator--;
         return *this;
     }
-    else {
-        // throw an exception if the denominator is not 1
-        throw std::invalid_argument("Denominator must be 1 to use pre-decrement operator.");
-    }
+    std::cout << "Denominator must be 1 to use pre-decrement operator." << "\n";    
 }
 
 Rational Rational::operator++(int) {
@@ -129,10 +123,7 @@ Rational Rational::operator++(int) {
         numerator++;
         return temp;
     }
-    else {
-        // throw an exception if the denominator is not 1
-        throw std::invalid_argument("Denominator must be 1 to use post-increment operator.");
-    }
+    std::cout << "Denominator must be 1 to use post-increment operator." << "\n";    
 }
 
 Rational Rational::operator--(int) {
@@ -142,10 +133,7 @@ Rational Rational::operator--(int) {
         numerator--;
         return temp;
     }
-    else {
-        // throw an exception if the denominator is not 1
-        throw std::invalid_argument("Denominator must be 1 to use post-decrement operator.");
-    }
+    std::cout << "Denominator must be 1 to use post-decrement operator.";    
 }
 
 double Rational::getHighestCommonFactor(double a, double b) const {
