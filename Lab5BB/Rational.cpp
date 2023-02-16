@@ -101,39 +101,43 @@ double Rational::getCurrentValue() const
 Rational& Rational::operator++() {
     // pre-increment operator
     if (denominator == 1) {
-        numerator++;
+        ++numerator;
         return *this;
     }
-    std::cout << "Denominator must be 1 to use pre-increment operator." << "\n";    
-}
-
-Rational& Rational::operator--() {
-    // pre-decrement operator
-    if (denominator == 1) {
-        numerator--;
-        return *this;
-    }
-    std::cout << "Denominator must be 1 to use pre-decrement operator." << "\n";    
+    std::cout << "Denominator must be 1 to use pre-increment operator." << "\n";
+    return *this;
 }
 
 Rational Rational::operator++(int) {
     // post-increment operator
     if (denominator == 1) {
-        Rational temp(*this);
         numerator++;
-        return temp;
+        return *this;
     }
-    std::cout << "Denominator must be 1 to use post-increment operator." << "\n";    
+    std::cout << "Denominator must be 1 to use post-increment operator." << "\n";
+    return *this;
 }
+
+Rational& Rational::operator--() {
+    // pre-decrement operator
+    if (denominator == 1) {
+        --numerator;
+        return *this;
+    }
+    std::cout << "Denominator must be 1 to use pre-decrement operator." << "\n";
+    return *this;
+}
+
+
 
 Rational Rational::operator--(int) {
     // post-decrement operator
     if (denominator == 1) {
-        Rational temp(*this);
         numerator--;
-        return temp;
+        return *this;
     }
-    std::cout << "Denominator must be 1 to use post-decrement operator.";    
+    std::cout << "Denominator must be 1 to use post-decrement operator." << "\n";
+    return *this;
 }
 
 double Rational::getHighestCommonFactor(double a, double b) const {
