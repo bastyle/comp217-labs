@@ -473,6 +473,19 @@ int main() {
     //removeDuplicates();
     //lambdaArraySum();
     //lambdaCheckInterval();
-    lambdaIsLowerCase();
+    //lambdaIsLowerCase();
+    //std::cout << std::string(5, '.');
+    int i = 3;
+
+    // A pointer to variable i or "stores the address of i"
+    int* ptr = &i;
+    std::cout << ptr << std::endl;
+    // A reference (or alias) for i.
+    int& ref = i;
+    std::cout << ref << std::endl;
+
+    std::cout << i << std::endl;
+    std::cout << &i << std::endl;
+
 }
 
