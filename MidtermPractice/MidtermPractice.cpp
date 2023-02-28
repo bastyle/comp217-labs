@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "PasswordValidator.h"
 #include "RecursiveUtils.h"
 #include "TemplateUtils.h"
 void countConcurrences()
@@ -274,6 +275,27 @@ void arrayToStringRecursive2()
     std::cout << aux << std::endl;
 }
 
+void passwordValidator()
+{
+    std::unordered_set<char> validChars = { '!', '@', '#', '$', '%', '^', '&', '*' };
+    std::unordered_set<char> invalidChars = { ' ', '\t', '\n' };
+
+    PasswordValidator validator(validChars, invalidChars);
+    validator.setRequireNumber(true);
+    validator.setMinLength(8);
+
+    std::string password;
+    std::cout << "Enter a password: ";
+    std::cin >> password;
+
+    if (validator(password)) {
+        std::cout << "Password is valid." << std::endl;
+    }
+    else {
+        std::cout << "Password is invalid." << std::endl;
+    }
+}
+
 int main() {
     //countConcurrences();
     //smallerCount();
@@ -293,7 +315,8 @@ int main() {
     //replaceNegativeRecursive();
     //countDivisionsByTwoRecursive();
     //printIntArrayRecursive();
-    arrayToStringRecursive2();
+    //arrayToStringRecursive2();
+    passwordValidator();
 
 }
 

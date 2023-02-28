@@ -26,5 +26,14 @@
     <ClInclude Include="RecursiveUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PasswordValidator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordValidator2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringCleaner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -130,7 +130,10 @@
     <ClCompile Include="MidtermPractice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PasswordValidator.h" />
+    <ClInclude Include="PasswordValidator2.h" />
     <ClInclude Include="RecursiveUtils.h" />
+    <ClInclude Include="StringCleaner.h" />
     <ClInclude Include="TemplateUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
