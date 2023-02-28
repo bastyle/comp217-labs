@@ -3,9 +3,15 @@
 
 #include <iostream>
 
+#include "LambdaUtils.h"
 #include "PasswordValidator.h"
 #include "RecursiveUtils.h"
+#include "RemoveDuplicates.h"
+#include "StringCleaner.h"
 #include "TemplateUtils.h"
+#include "UserPassValidator.h"
+#include "ValidNameChecker.h"
+
 void countConcurrences()
 {
     int arr[] = { 1, 2, 3, 2, 1, 4, 5, 2 };
@@ -296,6 +302,151 @@ void passwordValidator()
     }
 }
 
+void stringCleaner()
+{
+    StringCleaner cleaner;
+    std::vector<std::string> strings = { "   hello", "world  ", "  foo bar  ", "  ", "","bastian"};
+    for (auto& str : strings) {
+        cleaner(str);
+        std::cout << "Cleaned string: " << str << std::endl;
+    }
+    std::cout << "Number of strings cleared: " << cleaner.getNumCleared() << std::endl;
+    std::cout << "Number of spaces removed: " << cleaner.getNumRemoved() << std::endl;
+}
+
+void validNameChecker()
+{
+    ValidNameChecker checker;
+
+    checker("John Doe");
+    checker("Mary Jane");
+    checker("Alice Smith");
+    checker("Bob");
+    checker("David Lee");
+
+    std::cout << "Valid count: " << checker.getValidCount() << '\n';
+    std::cout << "Invalid count: " << checker.getInvalidCount() << '\n';
+
+    checker.printValidStrings();
+    checker.printInvalidStrings();
+}
+
+void removeDuplicates()
+{
+    std::vector<double> arr = { 1.0, 2.0, 2.5, 3.0, 3.5, 4.0 };
+    RemoveDuplicates remove_duplicates(0.5);
+    remove_duplicates(arr);
+    std::cout << "Removed " << remove_duplicates.num_removed() << " duplicates" << std::endl;
+    remove_duplicates.print_log();
+}
+
+void userPassValidator()
+{
+    UserPassValidator validator("users.txt");
+
+    std::string username;
+    std::string password;
+    std::cout << "Enter username: ";
+    std::cin >> username;
+    std::cout << "Enter password: ";
+    std::cin >> password;
+
+    if (validator(username, password)) {
+        std::cout << "Access granted!\n";
+    }
+    else {
+        std::cout << "Access denied.\n";
+    }
+}
+
+template<typename Func>
+int lambdaSum(int arr[], Func func)
+{
+    return func(arr);
+}
+
+template<typename Func>
+int add(int i, Func func)
+{
+    return func(i);
+}
+
+void lambdaArraySum()
+{
+    auto sum = [](const int arr[], int size) -> int {
+        int total = 0;
+        for (int i = 0; i < size; i++) {
+            total += arr[i];
+        }
+        return total;
+    };
+
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int result = sum(arr, size);
+    // print the result to the console
+    std::cout << "The sum is: " << result << std::endl;
+
+	std::cout << lambdaSum(arr, [&](int[])
+    {
+        int totalArr = 0;
+		int sizeArr = sizeof(arr) / sizeof(arr[0]);
+		for (int index = 0; index < sizeArr; index++) {
+            totalArr += arr[index];
+		}
+		return totalArr;
+    }) << std::endl;
+    //int k = 4;
+    //std::cout << add(10, [&](int i) { return i + k++; }) << std::endl;
+
+}
+
+void lambdaCheckInterval() {
+    auto checkInterval = [](const std::vector<int>& nums, int min, int max) {
+        for (auto num : nums) {
+            if (num < min || num > max) {
+                return false;
+            }
+        }
+        return true;
+    };
+    std::vector<int> nums = { 1, 3, 5, 7, 9 };
+    int min = 0, max = 10;
+
+    bool result = checkInterval(nums, min, max);
+    std::cout << "All numbers within interval? " << result << std::endl;
+}
+
+
+void lambdaIsLowerCase()
+{
+    auto isLowerCase = [](const std::string& s) {
+        return std::all_of(s.begin(), s.end(), [](char c) { return std::islower(c); });        
+    };
+
+    bool result = isLowerCase("lalalala");
+    std::cout << "is lower case? " << result << std::endl;
+    result = isLowerCase("lalAlala");
+    std::cout << "is lower case? " << result << std::endl;
+}
+
+void lambdaMultiply()
+{
+    auto multiplyByN = [](int n, const std::vector<int>& arr) {
+        std::vector<int> result;
+        for (auto x : arr) {
+            result.push_back(n * x);
+        }
+        return result;
+    };
+    std::vector<int> arr = { 1, 2, 3, 4 };
+    auto result = multiplyByN(5, arr); // multiplies each element of arr by 5
+    //std::cout << "is lower case? " << result << std::endl;
+}
+
+
+
+
 int main() {
     //countConcurrences();
     //smallerCount();
@@ -316,7 +467,12 @@ int main() {
     //countDivisionsByTwoRecursive();
     //printIntArrayRecursive();
     //arrayToStringRecursive2();
-    passwordValidator();
-
+    //passwordValidator();
+    //stringCleaner();
+    //validNameChecker();
+    //removeDuplicates();
+    //lambdaArraySum();
+    //lambdaCheckInterval();
+    lambdaIsLowerCase();
 }
 

@@ -130,11 +130,19 @@
     <ClCompile Include="MidtermPractice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collection.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemType.h" />
+    <ClInclude Include="LambdaUtils.h" />
     <ClInclude Include="PasswordValidator.h" />
     <ClInclude Include="PasswordValidator2.h" />
     <ClInclude Include="RecursiveUtils.h" />
+    <ClInclude Include="RemoveDuplicates.h" />
+    <ClInclude Include="ShoppingCart.h" />
     <ClInclude Include="StringCleaner.h" />
     <ClInclude Include="TemplateUtils.h" />
+    <ClInclude Include="UserPassValidator.h" />
+    <ClInclude Include="ValidNameChecker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
