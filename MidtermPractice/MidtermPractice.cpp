@@ -179,7 +179,7 @@ void allOf()
     }
 }
 
-void printPoints()
+void printPointsRecursive()
 {
     RecursiveUtils recursive;
     //recursive.printPoints(5);
@@ -194,6 +194,86 @@ void recursiveFormula()
     std::cout << "The result is " << result << std::endl;
 }
 
+void counterLetterARecursive()
+{
+    std::string str = "banana";
+    RecursiveUtils recursive;
+    int count = recursive.countLetterA(str);
+    std::cout << "The string \"" << str << "\" contains " << count << " letter a's." << std::endl;
+}
+
+void sumArrayRecursive() {
+    double arr[] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // calculate the sum of all elements in the array
+    RecursiveUtils recursive;
+    double sum = recursive.sumArray(arr, n);
+
+    // output the sum to the console
+    std::cout << "The sum of all elements in the array is: " << sum << std::endl;
+}
+void countEvenRecursive()
+{
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // calculate the sum of all elements in the array
+    RecursiveUtils recursive;
+    double sum = recursive.countEvenRecursive(arr, n);
+
+    // output the sum to the console
+    std::cout << "The sum of all elements in the array is: " << sum << std::endl;
+}
+
+void replaceSpacesWithDotRecursive()
+{
+    RecursiveUtils recursive;
+    std::string aux = "aa jj kk,.l ll ";
+    std::cout << aux << std::endl;
+    recursive.replaceSpacesWithDotRecursive(aux);
+    std::cout << aux << std::endl;
+    std::cout << recursive.replaceSpacesWithDotRecursive2(aux);
+    //std::cout << aux << std::endl;
+}
+
+void replaceNegativeRecursive()
+{
+    RecursiveUtils recursive;
+    float arr[] = { 1.5, -2.7, 3.0, -4.2, 5.1 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    recursive.replaceNegativeRecursive(arr, size);
+
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+}
+
+void countDivisionsByTwoRecursive()
+{
+    RecursiveUtils recursive;
+    int aux = recursive.countDivisionsByTwoRecursive(8);
+    std::cout << "8 is "<< aux << " times divisible by 2" << std::endl;
+}
+
+void printIntArrayRecursive()
+{
+    RecursiveUtils recursive;
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    recursive.printIntArrayRecursive(arr,n);
+}
+
+void arrayToStringRecursive2()
+{
+    RecursiveUtils recursive;
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::string aux = recursive.arrayToStringRecursive2(arr, n);
+    std::cout << aux << std::endl;
+}
+
 int main() {
     //countConcurrences();
     //smallerCount();
@@ -204,7 +284,16 @@ int main() {
     //countIfBetween();
     //findIf();
     //allOf();
-    //printPoints();
-    recursiveFormula();
+    //printPointsRecursive();
+    //recursiveFormula();
+    //counterLetterARecursive();
+    //sumArrayRecursive();
+    //countEvenRecursive();
+    //replaceSpacesWithDotRecursive();
+    //replaceNegativeRecursive();
+    //countDivisionsByTwoRecursive();
+    //printIntArrayRecursive();
+    arrayToStringRecursive2();
+
 }
 
