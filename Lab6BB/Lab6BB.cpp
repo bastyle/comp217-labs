@@ -33,41 +33,62 @@ bool isCondition(Coffee coffee, Func func)
     return func(coffee);
 }
 
-bool isFlavour(Coffee coffee)
+bool isCreamyOrFullFlavour(const Coffee coffee)
 {
     return coffee.flavorProfile == "Creamy" || coffee.flavorProfile == "Full Bodied";
 }
 
-std::list<Coffee> createSubscription3(std::vector<Coffee> stock)
+bool isLightOrMediumAndPriceLess10(const Coffee coffee)
 {
-    std::list<Coffee> listCoffees;
-	/*std::cout << "Number of Coffees with 'Creamy' or 'Full Bodied' flavor profile: "
-        << std::count_if(stock.begin(), stock.end(), [](const Coffee& coffee) {
-        return coffee.flavorProfile == "Creamy" || coffee.flavorProfile == "Full Bodied";
-            }) << "\n";*/
-    std::cout << "Number of Coffees with 'Creamy' or 'Full Bodied' flavor profile: "
-        << std::count_if(stock.begin(), stock.end(), isFlavour) << "\n";
-    return listCoffees;
+    return (coffee.roast == roastType::light || coffee.roast == roastType::medium) && coffee.pricePerKG < 10.0;
+}
+
+void printEnum(std::vector<Coffee> stock)
+{
+    for (Coffee coffee : stock)
+    {
+        std::cout << static_cast<std::underlying_type<roastType>::type>(coffee.roast) << std::endl;
+    }
+}
+
+bool isRoast(const Coffee coffee)
+{
+    return coffee.roast == roastType::dark;
+}
+
+double getTotalStockPrice(std::list<Coffee> coffeeSubs, const long subsSize)
+{
+    if (subsSize == 0)
+        return 0;
+    std::list<Coffee>::iterator it = coffeeSubs.begin();
+    std::advance(it, subsSize-1);
+    std::cout << it->pricePerKG << std::endl;
+    return (it->pricePerKG+getTotalStockPrice(coffeeSubs,subsSize-1));
+}
+
+std::list<Coffee> createSubscription(std::vector<Coffee> stock)
+{
+    std::list<Coffee> coffeeSubsList;
+	std::cout << "Number of Coffees with 'Creamy' or 'Full Bodied' flavor profile: "
+        << std::count_if(stock.begin(), stock.end(), isCreamyOrFullFlavour) << "\n";
+    std::sort(stock.begin(), stock.end(), [](const Coffee& c1, const Coffee& c2) {
+        return c1.roast < c2.roast;
+        });
+    std::copy_if(stock.begin(), stock.end(), std::back_inserter(coffeeSubsList), isLightOrMediumAndPriceLess10);
+
+	const auto darkRoastIt = std::find_if(stock.begin(), stock.end(), isRoast);
+    if (darkRoastIt != stock.end()) {
+        coffeeSubsList.push_back(*darkRoastIt);
+    }
+	
+    const double total = getTotalStockPrice(coffeeSubsList, coffeeSubsList.size());
+    std::cout << "Total price per KG of Coffees in the subscription: $" << total << "\n";
+    return coffeeSubsList;
 }
 
 
 
-std::list<Coffee> createSubscription2 (std::vector<Coffee> coffeeStack)
-{
 
-    std::list<Coffee> listCoffees;
-    int specificFlavorCount = 0;
-    /*for (auto coffe : coffeeStack) {
-        bool found = (std::find(listOfSpecificFlavors.begin(), listOfSpecificFlavors.end(), coffe.flavorProfile) != listOfSpecificFlavors.end());
-        specificFlavorCount+=found?1:0;       
-    }*/
-    //bool found = (std::find(coffeeStack.begin(), coffeeStack.end(), "Creamy",) != coffeeStack.end());
-    //int64_t counter = std::count(coffeeStack.begin(), coffeeStack.end(), "Creamy");
-    int64_t counter = std::count(listOfSpecificFlavors.begin(), listOfSpecificFlavors.end(), "Creamy");
-
-    std::cout << "There are "<< counter << " coffees with these flavors: !\n";
-    return listCoffees;
-}
 
 /*std::list<Coffee> createSubscription(const std::vector<Coffee>& stock)
 {
@@ -109,7 +130,7 @@ std::list<Coffee> createSubscription2 (std::vector<Coffee> coffeeStack)
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    
     std::vector<Coffee> coffees({
 { "Pacific Pipeline", roastType::medium, "Full Bodied", 8.99 },
 { "Three Sisters", roastType::medium, "Tropical Fruit", 7.99 },
@@ -119,11 +140,8 @@ int main()
 { "Grizzly Claw", roastType::light, "Full Bodied", 9.99 },
         });
 
-    createSubscription3(coffees);
-
-	/*auto coffee_sub = createSubscription(coffees);
+    auto coffee_sub = createSubscription(coffees);
     
-
 	void(*roastFunc[3])() = {
     []() { std::cout << "Light"; },
     []() { std::cout << "Medium"; },
@@ -134,7 +152,7 @@ int main()
 	    std::cout << x.name << " | ";
         roastFunc[(int)x.roast]();
         std::cout << " | " << x.flavorProfile << " | " << x.pricePerKG << std::endl;
-    }*/
+    }
     return 0;
 }
 
